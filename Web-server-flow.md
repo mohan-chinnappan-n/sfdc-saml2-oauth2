@@ -10,7 +10,7 @@
 ![Setup the connected app](./img/auth_code/settingup-connected-app.png)
 
 
--  GET :
+-  **GET** : Verification Code
 
 ```
 https://login|test.salesforce.com/services/oauth2/authorize?response_type=code&client_id=<your_client_id>&redirect_uri=<your_redirect_uri>
@@ -28,7 +28,7 @@ You will get the **code** (Verification Code) as shown below:
 
 - Exchange Verification Code for Access Token
 
- POST : the code (Verification Code) to get the access_token:
+ **POST** : the code (Verification Code) to get the access_token:
 
 ```
 https://login.salesforce.com/services/oauth2/token?grant_type=authorization_code&client_id=<your_client_id>&client_secret=<your_client_secret>&redirect_uri=<your_redirect_uri>&code<code_got_in_last_step>
@@ -48,6 +48,14 @@ Response:Salesforce Responds with an Access Token Response
 ![token_response](./img/auth_code/get_authorization_code.png)
 
 ![access_token](./img/auth_code/access_token.png)
+
+
+**Store:**
+
+- access_token
+- instance_url
+
+for later use
 
 
 ### Using the Access token:
