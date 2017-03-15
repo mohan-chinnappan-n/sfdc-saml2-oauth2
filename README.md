@@ -9,18 +9,19 @@
 
 ### Steps:
 
-```
+
 Key idea:
 
 The OAuth 2.0 SAML bearer assertion flow defines:
-   how a SAML assertion can be used to request an OAuth access token when:
-       a client wants to use a previous authorization.
+
+   how a SAML assertion can be used to request an OAuth access token when: a client wants to use a previous authorization.
+
   Authentication of the authorized app is provided by the digital signature applied to the SAML assertion.
 
 
 
 
-OAuth 2.0 SAML Bearer Assertion Flow:
+**OAuth 2.0 SAML Bearer Assertion Flow:**
 
 The OAuth 2.0 SAML bearer assertion flow is similar to a refresh token flow within OAuth.
 
@@ -31,62 +32,83 @@ However, the client isn’t required to have or store a refresh_token, nor is a 
 
 
 These are the general steps involved in using the OAuth 2.0 SAML bearer assertion flow.
+
 The OAuth 2.0 SAML Bearer Assertion Flow utilizes an X509 Certificate.
 
-    A. The developer creates a connected app and registers an X509 Certificate.
-        This certificate corresponds to the private key of the app. When the connected app is saved,
-         a consumer key (OAuth client_id) is generated and assigned to the app.
+The developer creates a connected app and registers an X509 Certificate.
+This certificate corresponds to the private key of the app. When the connected app is saved,
+ a consumer key (OAuth client_id) is generated and assigned to the app.
 
-         (ref: https://developer.salesforce.com/blogs/isv/2015/04/integrating-multi-orgs-using-oauth.html)
-         1. Navigate to App Setup > Create > Apps > Connected Apps > New
-          2. Complete the required fields in the Basic Information Section:
+ (ref: https://developer.salesforce.com/blogs/isv/2015/04/integrating-multi-orgs-using-oauth.html)
+1. Navigate to App Setup > Create > Apps > Connected Apps > New
 
-          Connected App Name
-          API Name
-          Contact Email
-          3. In the API (Enable OAuth Settings) Section click the Enable OAuth Settings checkbox.
-          4. Enter an arbitrary Callback URL
-          5. For Selected OAuth Scopes, add Perform requests on your behalf at any time (refresh_token), and add other OAuth scopes, as required.  It is required to add at least one additional OAuth scope.
-          6. Click the Use digital signatures checkbox,
-             click the Choose File button and select the Certificate file that was created above (e.g. mycert.cer)
-          7. Click the Save button.
+2. Complete the required fields in the Basic Information Section:
 
+  Connected App Name
 
-       The certificate corresponds to the private key of the remote access application to be developed.
+  API Name
 
-        An example of how to create a certificate:
+  Contact Email
 
-        keytool -keysize 2048 -genkey -alias mycert -keyalg RSA -keystore ./mycert.jks
-        keytool -importkeystore -srckeystore mycert.jks -destkeystore mycert.p12 -deststoretype PKCS12
-        openssl pkcs12 -in mycert.p12 -out key.pem -nocerts –nodes
-        keytool -export -alias mycert -file mycert.crt -keystore mycert.jks -rfc
+3. In the API (Enable OAuth Settings) Section click the Enable OAuth Settings checkbox.
+
+4. Enter an arbitrary Callback URL
+
+5. For Selected OAuth Scopes, add Perform requests on your behalf at any time (refresh_token), and add other OAuth scopes, as required.  It is required to add at least one additional OAuth scope.
+
+6. Click the Use digital signatures checkbox,
+   click the Choose File button and select the Certificate file that was created above (e.g. mycert.cer)
+
+7. Click the *Save* button.
 
 
+The certificate corresponds to the private key of the remote access application to be developed.
+
+An example of how to create a certificate:
+```
+keytool -keysize 2048 -genkey -alias mycert -keyalg RSA -keystore ./mycert.jks
+keytool -importkeystore -srckeystore mycert.jks -destkeystore mycert.p12 -deststoretype PKCS12
+openssl pkcs12 -in mycert.p12 -out key.pem -nocerts –nodes
+keytool -export -alias mycert -file mycert.crt -keystore mycert.jks -rfc
+```
 
 
-    2. == The developer writes **an app** that generates a SAML assertion and signs it with the private key of the above certificate. ==
 
-    3. The SAML Bearer assertion is posted to the token endpoint https://login.salesforce.com/services/oauth2/token.
+- == The developer writes **an app** that generates a SAML assertion and signs it with the private key of the above certificate. ==
 
-    The token endpoint (https://login.salesforce.com/services/oauth2/token) validates the signature using
-     the certificate registered by the developer.
+- The SAML Bearer assertion is posted to the token endpoint https://login.salesforce.com/services/oauth2/token.
 
-    The token endpoint validates the audience, issuer, subject, and alidity of the assertion.
+- The token endpoint (https://login.salesforce.com/services/oauth2/token) validates the signature using
+ the certificate registered by the developer.
+
+- The token endpoint validates the audience, issuer, subject, and validity of the assertion.
 Assuming that the assertion is valid and that the user or admin authorized the app previously, Salesforce issues an access token.
-Note
-A refresh_token is never issued in this flow.
 
+
+
+**Note**:
+
+A *refresh_token* is never issued in this flow.
+
+------
+### SAML bearer assertion 
 
 1. The developer must create a valid SAML bearer assertion that conforms to the following rules.
+
 2. The Issuer must be the OAuth client_id or the connected app for which the developer registered their certificate.
+
 3. The Audience must be https://login.salesforce.com or https://test.salesforce.com.
+
 4. The Recipient must be https://login.salesforce.com/services/oauth2/token or https://test.salesforce.com/services/oauth2/token.
+
 5. The Subject NameID must be the username of the desired Salesforce user.
+
 6. The assertion must be signed according to the XML Signature specification, using RSA and either SHA-1 or SHA-256.
+
 7. The SAML assertion must conform with the general format rules specified here: http://tools.ietf.org/html/draft-ietf-oauth-saml2-bearer.
+
 8. When posted to the token endpoint, the assertion must be encoded using base64url encoding as defined here: http://tools.ietf.org/html/rfc4648#page-7
 
-```
 
 ### Sample SAML Assertion
 
