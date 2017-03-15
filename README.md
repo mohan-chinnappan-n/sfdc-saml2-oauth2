@@ -100,6 +100,7 @@ keytool -export -alias mycert -file mycert.crt -keystore mycert.jks -rfc
 **App Side**:
 
 - The developer writes **an app** that **generates a SAML assertion and signs it with the private key** of the above certificate.
+  Tip: opensaml lib can be used:  http://mvnrepository.com/artifact/org.opensaml/opensaml
 
 - The SAML Bearer assertion is posted to the token endpoint https://login.salesforce.com/services/oauth2/token
 
