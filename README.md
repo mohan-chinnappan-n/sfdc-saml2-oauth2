@@ -10,11 +10,13 @@
 ### Steps:
 
 
-Key idea:
+**Key idea**:
 
 The OAuth 2.0 SAML bearer assertion flow defines:
 
-   how a SAML assertion can be used to request an OAuth access token when: a client wants to use a previous authorization.
+   How a SAML assertion can be used to request an OAuth access token when:
+
+    a client wants to use a previous authorization.
 
   Authentication of the authorized app is provided by the digital signature applied to the SAML assertion.
 
@@ -44,11 +46,11 @@ This certificate corresponds to the private key of the app. When the connected a
 
 2. Complete the required fields in the Basic Information Section:
 
-  Connected App Name
+  - Connected App Name
 
-  API Name
+  - API Name
 
-  Contact Email
+  - Contact Email
 
 3. In the API (Enable OAuth Settings) Section click the Enable OAuth Settings checkbox.
 
@@ -91,7 +93,7 @@ Assuming that the assertion is valid and that the user or admin authorized the a
 A *refresh_token* is never issued in this flow.
 
 ------
-### SAML bearer assertion 
+### SAML bearer assertion
 
 1. The developer must create a valid SAML bearer assertion that conforms to the following rules.
 
