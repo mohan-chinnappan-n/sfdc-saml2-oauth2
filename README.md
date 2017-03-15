@@ -26,8 +26,7 @@ The OAuth 2.0 SAML bearer assertion flow is similar to a **refresh token flow** 
 
 The SAML assertion is posted to the OAuth token endpoint (https://login.salesforce.com/services/oauth2/token or https://test.salesforce.com/services/oauth2/token),
 which in turn processes the **SAML assertion** and issues an **access_token** based on prior approval of the app.
-
-** STEPS **
+STEPS:
 
  - the Assertion is POSTed (1) to the OAuth token endpoint, https://login.salesforce.com/services/oauth2/token, with payload of the form:
 
