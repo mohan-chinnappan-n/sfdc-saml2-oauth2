@@ -58,7 +58,7 @@ This certificate corresponds to the private key of the app. When the connected a
  a consumer key (OAuth client_id) is generated and assigned to the app.
 
  (ref: https://developer.salesforce.com/blogs/isv/2015/04/integrating-multi-orgs-using-oauth.html)
-1. Navigate to App Setup > Create > Apps > Connected Apps > New
+1. Navigate to App Setup > Create > Apps > **Connected Apps** > New
 
 2. Complete the required fields in the Basic Information Section:
 
@@ -93,7 +93,7 @@ keytool -export -alias mycert -file mycert.crt -keystore mycert.jks -rfc
 
 
 
-- == The developer writes **an app** that generates a SAML assertion and signs it with the private key of the above certificate. ==
+- The developer writes **an app** that **generates a SAML assertion and signs it with the private key** of the above certificate.
 
 - The SAML Bearer assertion is posted to the token endpoint https://login.salesforce.com/services/oauth2/token
 
