@@ -77,11 +77,13 @@ This certificate corresponds to the private key of the app. When the connected a
 
 6. Click the Use digital signatures checkbox,
    click the Choose File button and select the Certificate file that was created above (e.g. mycert.cer)
+   
+   The certificate corresponds to the private key of the remote access application to be developed.
 
 7. Click the *Save* button.
 
 
-The certificate corresponds to the private key of the remote access application to be developed.
+
 
 An example of how to create a certificate:
 ```
@@ -112,17 +114,17 @@ A *refresh_token* is never issued in this flow.
 ------
 ### SAML bearer assertion
 
-1. The developer must create a valid SAML bearer assertion that conforms to the following rules.
+1. The developer must create a valid **SAML bearer assertion** that conforms to the following **rules**.
 
-2. The Issuer must be the OAuth client_id or the connected app for which the developer registered their certificate.
+2. The Issuer must be the OAuth **client_id** or the connected app for which the developer registered their certificate.
 
-3. The Audience must be https://login.salesforce.com or https://test.salesforce.com.
+3. The Audience must be https://login.salesforce.com or https://test.salesforce.com
 
-4. The Recipient must be https://login.salesforce.com/services/oauth2/token or https://test.salesforce.com/services/oauth2/token.
+4. The Recipient must be https://login.salesforce.com/services/oauth2/token (for Production or developer org) or https://test.salesforce.com/services/oauth2/token (for sandboxes).
 
-5. The Subject NameID must be the username of the desired Salesforce user.
+5. The *Subject* **NameID** must be the **username** of the desired Salesforce user (example: username for the Integration user).
 
-6. The assertion must be signed according to the XML Signature specification, using RSA and either SHA-1 or SHA-256.
+6. The assertion must be signed according to the **XML Signature specification**, using RSA and either SHA-1 or SHA-256.
 
 7. The SAML assertion must conform with the general format rules specified here: http://tools.ietf.org/html/draft-ietf-oauth-saml2-bearer.
 
