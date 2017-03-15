@@ -22,17 +22,18 @@ Authentication of the authorized app is provided by the **digital signature appl
 
 ![Obtaining an Access Token using a SAML Bearer Assertion](https://s3.amazonaws.com/dfc-wiki/en/images/0/09/OAuthSAMLBearerAssertionFlow.png)
 
-The OAuth 2.0 SAML bearer assertion flow is similar to a refresh token flow within OAuth.
+The OAuth 2.0 SAML bearer assertion flow is similar to a **refresh token flow** within OAuth.
 
-The SAML assertion is posted to the OAuth token endpoint (https://test.salesforce.com/services/oauth2/token),
-which in turn processes the assertion and issues an **access_token** based on prior approval of the app.
+The SAML assertion is posted to the OAuth token endpoint (https://login.salesforce.com/services/oauth2/token or https://test.salesforce.com/services/oauth2/token),
+which in turn processes the **SAML assertion** and issues an **access_token** based on prior approval of the app.
 
+** STEPS **
 
  - the Assertion is POSTed (1) to the OAuth token endpoint, https://login.salesforce.com/services/oauth2/token, with payload of the form:
 
 ```
   grant_type	Set this to urn:ietf:params:oauth:grant-type:saml2-bearer
-  assertion	The SAML Bearer Assertion, encoded using **base64url**
+  assertion	The SAML Bearer Assertion, encoded using base64url
 
   example:
   grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Asaml2-bearer&assertion=PHN...QZT
@@ -41,22 +42,25 @@ which in turn processes the assertion and issues an **access_token** based on pr
 - The authorization server validates the Assertion and issues an access_token (2) based upon prior approval of the application.
 
 
-
 However, the client isn’t required to have or store a refresh_token, nor is a client_secret required to be passed to the token endpoint.
 
 
 ----------
 
-### Steps involved
-These are the general steps involved in using the OAuth 2.0 SAML bearer assertion flow.
+### Setup Steps
 
-The OAuth 2.0 SAML Bearer Assertion Flow utilizes an X509 Certificate.
+These are the general steps involved in using the OAuth 2.0 SAML bearer assertion flow:
 
-The developer creates a connected app and registers an X509 Certificate.
-This certificate corresponds to the private key of the app. When the connected app is saved,
+The OAuth 2.0 SAML Bearer Assertion Flow utilizes an **X509 Certificate**.
+
+**In Salesforce**:
+
+The developer creates a **connected app** and registers an X509 Certificate.
+
+This certificate corresponds to the private key of the app (say DataStage). When the connected app is saved,
  a consumer key (OAuth client_id) is generated and assigned to the app.
 
- (ref: https://developer.salesforce.com/blogs/isv/2015/04/integrating-multi-orgs-using-oauth.html)
+
 1. Navigate to App Setup > Create > Apps > **Connected Apps** > New
 
 2. Complete the required fields in the Basic Information Section:
@@ -79,20 +83,21 @@ This certificate corresponds to the private key of the app. When the connected a
 
    The certificate corresponds to the private key of the remote access application to be developed.
 
-7. Click the *Save* button.
+7. Click the **Save** button.
 
 
 
 
-An example of how to create a certificate:
+An example of how to **create a certificate**:
 ```
 keytool -keysize 2048 -genkey -alias mycert -keyalg RSA -keystore ./mycert.jks
 keytool -importkeystore -srckeystore mycert.jks -destkeystore mycert.p12 -deststoretype PKCS12
 openssl pkcs12 -in mycert.p12 -out key.pem -nocerts –nodes
 keytool -export -alias mycert -file mycert.crt -keystore mycert.jks -rfc
+
 ```
 
-
+**App Side**:
 
 - The developer writes **an app** that **generates a SAML assertion and signs it with the private key** of the above certificate.
 
