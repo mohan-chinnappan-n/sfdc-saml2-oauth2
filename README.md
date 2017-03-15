@@ -2,10 +2,7 @@
 
 
 
-
-### Flow
-![Obtaining an Access Token using a SAML Bearer Assertion](https://s3.amazonaws.com/dfc-wiki/en/images/0/09/OAuthSAMLBearerAssertionFlow.png)
-
+ 
 
 ### Steps:
 
@@ -21,18 +18,39 @@ The OAuth 2.0 SAML bearer assertion flow defines:
   Authentication of the authorized app is provided by the **digital signature applied to the SAML assertion**.
 
 
+---------
 
 
-**OAuth 2.0 SAML Bearer Assertion Flow:**
+### OAuth 2.0 SAML Bearer Assertion Flow:
+
+![Obtaining an Access Token using a SAML Bearer Assertion](https://s3.amazonaws.com/dfc-wiki/en/images/0/09/OAuthSAMLBearerAssertionFlow.png)
 
 The OAuth 2.0 SAML bearer assertion flow is similar to a refresh token flow within OAuth.
 
-The SAML assertion is posted to the OAuth token endpoint (https://test.salesforce.com/services/oauth2/token.)
-which in turn processes the assertion and issues an access_token based on prior approval of the app.
+The SAML assertion is posted to the OAuth token endpoint (https://test.salesforce.com/services/oauth2/token),
+which in turn processes the assertion and issues an **access_token** based on prior approval of the app.
+
+
+ - the Assertion is POSTed (1) to the OAuth token endpoint, https://login.salesforce.com/services/oauth2/token, with payload of the form:
+
+'''
+  grant_type	Set this to urn:ietf:params:oauth:grant-type:saml2-bearer
+  assertion	The SAML Bearer Assertion, encoded using **base64url**
+
+  example:
+  grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Asaml2-bearer&assertion=PHN...QZT
+
+'''
+- The authorization server validates the Assertion and issues an access_token (2) based upon prior approval of the application.
+
+
 
 However, the client isn’t required to have or store a refresh_token, nor is a client_secret required to be passed to the token endpoint.
 
 
+----------
+
+### Steps involved
 These are the general steps involved in using the OAuth 2.0 SAML bearer assertion flow.
 
 The OAuth 2.0 SAML Bearer Assertion Flow utilizes an X509 Certificate.
@@ -55,7 +73,7 @@ This certificate corresponds to the private key of the app. When the connected a
 
 3. In the API (Enable OAuth Settings) Section click the Enable OAuth Settings checkbox.
 
-4. Enter an arbitrary Callback URL
+4. Enter the Callback URL
 
 5. For Selected OAuth Scopes, add Perform requests on your behalf at any time (refresh_token), and add other OAuth scopes, as required.  It is required to add at least one additional OAuth scope.
 
@@ -79,7 +97,7 @@ keytool -export -alias mycert -file mycert.crt -keystore mycert.jks -rfc
 
 - == The developer writes **an app** that generates a SAML assertion and signs it with the private key of the above certificate. ==
 
-- The SAML Bearer assertion is posted to the token endpoint https://login.salesforce.com/services/oauth2/token.
+- The SAML Bearer assertion is posted to the token endpoint https://login.salesforce.com/services/oauth2/token
 
 - The token endpoint (https://login.salesforce.com/services/oauth2/token) validates the signature using
  the certificate registered by the developer.
