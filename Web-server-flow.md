@@ -22,11 +22,13 @@ https://login.salesforce.com/services/oauth2/authorize?response_type=code&client
 
 ```
 
-You will get the **code* as shown below:
+You will get the **code** (Verification Code) as shown below:
 
 ![code](./img/auth_code/get_code.png)
 
-- POST : the code to get the access_token:
+- Exchange Verification Code for Access Token
+
+ POST : the code (Verification Code) to get the access_token:
 
 ```
 https://login.salesforce.com/services/oauth2/token?grant_type=authorization_code&client_id=<your_client_id>&client_secret=<your_client_secret>&redirect_uri=<your_redirect_uri>&code<code_got_in_last_step>
@@ -41,7 +43,7 @@ curl -X POST "https://login.salesforce.com/services/oauth2/token?grant_type=auth
 
 ```
 
-Response:
+Response:Salesforce Responds with an Access Token Response
 
 ![token_response](./img/auth_code/get_authorization_code.png)
 
@@ -58,3 +60,10 @@ curl -X POST "https://login.salesforce.com/services/oauth2/token?grant_type=auth
 
 Results:
 ![test_token](./img/auth_code/testing_token.png)
+
+
+
+## References
+1. [doc: OAuth 2.0 SAML Bearer Assertion Flow](https://help.salesforce.com/articleView?id=remoteaccess_oauth_web_server_flow.htm&language=en&type=0)
+
+2. [Obtaining an Access Token using a SAML Bearer Assertion](https://developer.salesforce.com/page/Digging_Deeper_into_OAuth_2.0_on_Force.com#Obtaining_an_Access_Token_in_a_Web_Application_.28Web_Server_Flow.29)
