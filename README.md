@@ -16,9 +16,9 @@ The OAuth 2.0 SAML bearer assertion flow defines:
 
    How a SAML assertion can be used to request an OAuth access token when:
 
-    a client wants to use a previous authorization.
+    a client wants to use a previous authorization
 
-  Authentication of the authorized app is provided by the digital signature applied to the SAML assertion.
+  Authentication of the authorized app is provided by the **digital signature applied to the SAML assertion**.
 
 
 
@@ -51,6 +51,7 @@ This certificate corresponds to the private key of the app. When the connected a
   - API Name
 
   - Contact Email
+  ![Connected App Digital signature.png](img/connectApp-DigitalCert.png)
 
 3. In the API (Enable OAuth Settings) Section click the Enable OAuth Settings checkbox.
 
