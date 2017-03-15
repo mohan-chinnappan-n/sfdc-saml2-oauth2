@@ -2,7 +2,7 @@
 
 
 
- 
+
 
 ### Steps:
 
@@ -11,9 +11,7 @@
 
 The OAuth 2.0 SAML bearer assertion flow defines:
 
-   How a SAML assertion can be used to request an OAuth access token when:
-
-    a client wants to use a previous authorization
+   How a SAML assertion can be used to request an OAuth access token when:  a client wants to use a previous authorization
 
   Authentication of the authorized app is provided by the **digital signature applied to the SAML assertion**.
 
@@ -33,14 +31,14 @@ which in turn processes the assertion and issues an **access_token** based on pr
 
  - the Assertion is POSTed (1) to the OAuth token endpoint, https://login.salesforce.com/services/oauth2/token, with payload of the form:
 
-'''
+```
   grant_type	Set this to urn:ietf:params:oauth:grant-type:saml2-bearer
   assertion	The SAML Bearer Assertion, encoded using **base64url**
 
   example:
   grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Asaml2-bearer&assertion=PHN...QZT
 
-'''
+```
 - The authorization server validates the Assertion and issues an access_token (2) based upon prior approval of the application.
 
 
