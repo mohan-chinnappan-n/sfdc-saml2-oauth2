@@ -4,16 +4,15 @@
 
 
 
-### Steps:
 
 
-**Key idea**:
 
-The OAuth 2.0 SAML bearer assertion flow defines:
 
-   How a SAML assertion can be used to request an OAuth access token when:  a client wants to use a previous authorization
+**The OAuth 2.0 SAML bearer assertion flow** defines:
 
-  Authentication of the authorized app is provided by the **digital signature applied to the SAML assertion**.
+How a **SAML assertion** can be used to request an OAuth access token when a client wants to use a previous authorization.
+
+Authentication of the authorized app is provided by the **digital signature applied to the SAML assertion**.
 
 
 ---------
@@ -77,7 +76,7 @@ This certificate corresponds to the private key of the app. When the connected a
 
 6. Click the Use digital signatures checkbox,
    click the Choose File button and select the Certificate file that was created above (e.g. mycert.cer)
-   
+
    The certificate corresponds to the private key of the remote access application to be developed.
 
 7. Click the *Save* button.
