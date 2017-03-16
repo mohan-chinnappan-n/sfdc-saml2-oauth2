@@ -1,6 +1,6 @@
 ### Notes on SFDC OAuth2 Flows
 
-** 6 authentication flows **
+#### 6 authentication flows ####
 
 ---------
 
