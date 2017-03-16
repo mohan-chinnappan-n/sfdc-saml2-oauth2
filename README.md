@@ -48,7 +48,10 @@ Authorize endpoint: https://login|test.salesforce.com/services/oauth2/authorize
 response_type=token
 
 
+
 -----
+
+
 - [Web SSO SAML Assertion](https://developer.salesforce.com/page/Digging_Deeper_into_OAuth_2.0_on_Force.com#Obtaining_an_Access_Token_using_a_Web_SSO_SAML_Assertion)
 
 Do not have to create a connected app to use this assertion flow
@@ -61,6 +64,9 @@ assertion_type=urn:oasis:names:tc:SAML:2.0:profiles:SSO:browser
 assertion=The SAML Assertion, encoded using base64
 
 [Reference](https://help.salesforce.com/articleView?id=remoteaccess_oauth_web_sso_flow.htm&type=0)
+
+-------
+
 
 - [Username and Password Flow](https://developer.salesforce.com/page/Digging_Deeper_into_OAuth_2.0_on_Force.com#Obtaining_a_Token_in_an_Autonomous_Client_.28Username_and_Password_Flow.29)
 
