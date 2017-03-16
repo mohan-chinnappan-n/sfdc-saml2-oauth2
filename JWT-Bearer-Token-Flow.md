@@ -28,7 +28,7 @@ The certificate corresponds to the private key of the app.
     - the signature using the certificate registered by the developer
       - validates the audience (**aud** = https://login|test.salesforce.com,:), issuer (**iss** = client_id of the connected app), validity (**exp** = expiration time of the assertion within 5 minutes  expressed as the number of seconds from 1970-01-01T0:0:0Z measured in UTC), and subject (**sub** = username of the desired Salesforce user) of the JWT
 
-  - If JWT is valid and that the user or admin authorized the app previously, Salesforce issues an access_token.
+  - If JWT is valid and that the user or admin authorized the app previously, Salesforce issues an **access_token**.
 
 
 ### How to create JWT Bearer Token:
