@@ -8,9 +8,9 @@
 
 Token endpoint: POST: https://login|test.salesforce.com/services/oauth2/token
 
-grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer
+**grant_type**=urn:ietf:params:oauth:grant-type:saml2-bearer
 
-assertion=	The SAML Bearer Assertion, encoded using base64url.
+assertion=The SAML Bearer Assertion, encoded using base64url.
 
 response: access_token
 
@@ -20,7 +20,7 @@ response: access_token
 
 Token endpoint: POST: https://login|test.salesforce.com/services/oauth2/token
 
-POST: JWT
+**POST**: JWT
 
 response: access_token
 
@@ -30,11 +30,13 @@ response: access_token
 
 Verification endpoint: GET :https://login|test.salesforce.com/services/oauth2/authorize
 
-response_type=code
+**response_type**=code (Validation Code)
+
+Exchange Validation Code for access_token:
 
 Token endpoint: POST: https://login|test.salesforce.com/services/oauth2/token
 
-grant_type=authorization_code
+**grant_type**=authorization_code
 
 response: access_token
 
@@ -58,7 +60,7 @@ Do not have to create a connected app to use this assertion flow
 
 Token endpoint: https://login|test.salesforce.com/services/oauth2/token
 
-grant_type=assertion
+**grant_type**=assertion
 
 assertion_type=urn:oasis:names:tc:SAML:2.0:profiles:SSO:browser
 
@@ -73,7 +75,7 @@ assertion=The SAML Assertion, encoded using base64
 
 Token endpoint: https://login|test.salesforce.com/services/oauth2/token
 
-grant_type=password
+**grant_type**=password
 
 username=username
 
