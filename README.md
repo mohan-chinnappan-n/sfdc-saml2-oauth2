@@ -61,6 +61,7 @@ Token endpoint: https://login|test.salesforce.com/services/oauth2/token
 grant_type=assertion
 
 assertion_type=urn:oasis:names:tc:SAML:2.0:profiles:SSO:browser
+
 assertion=The SAML Assertion, encoded using base64
 
 [Reference](https://help.salesforce.com/articleView?id=remoteaccess_oauth_web_sso_flow.htm&type=0)
@@ -73,5 +74,7 @@ assertion=The SAML Assertion, encoded using base64
 Token endpoint: https://login|test.salesforce.com/services/oauth2/token
 
 grant_type=password
+
 username=username
+
 password=user_password
