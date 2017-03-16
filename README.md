@@ -4,7 +4,7 @@
 
 ---------
 
-- [SAML Bearer Assertion Flow ](./SAML-Bearer-Assertion-Flow.md)
+1. [SAML Bearer Assertion Flow ](./SAML-Bearer-Assertion-Flow.md)
 
 Token endpoint: POST: https://login|test.salesforce.com/services/oauth2/token
 
@@ -16,7 +16,7 @@ response: access_token
 
 -----
 
-- [JWT Bearer Token Flow ](./JWT-Bearer-Token-Flow.md)
+2. [JWT Bearer Token Flow ](./JWT-Bearer-Token-Flow.md)
 
 Token endpoint: POST: https://login|test.salesforce.com/services/oauth2/token
 
@@ -26,7 +26,7 @@ response: access_token
 
 -------
 
-- [Web Server Flow ](./Web-server-flow.md)
+3. [Web Server Flow ](./Web-server-flow.md)
 
 Verification endpoint: GET :https://login|test.salesforce.com/services/oauth2/authorize
 
@@ -41,7 +41,7 @@ response: access_token
 --------
 
 
-- [User-Agent OAuth Authentication Flow](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_user_agent_oauth_flow.htm)
+4. [User-Agent OAuth Authentication Flow](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_user_agent_oauth_flow.htm)
 
 Authorize endpoint: https://login|test.salesforce.com/services/oauth2/authorize
 
@@ -52,7 +52,7 @@ response_type=token
 -----
 
 
-- [Web SSO SAML Assertion](https://developer.salesforce.com/page/Digging_Deeper_into_OAuth_2.0_on_Force.com#Obtaining_an_Access_Token_using_a_Web_SSO_SAML_Assertion)
+5. [Web SSO SAML Assertion](https://developer.salesforce.com/page/Digging_Deeper_into_OAuth_2.0_on_Force.com#Obtaining_an_Access_Token_using_a_Web_SSO_SAML_Assertion)
 
 Do not have to create a connected app to use this assertion flow
 
@@ -69,7 +69,7 @@ assertion=The SAML Assertion, encoded using base64
 -------
 
 
-- [Username and Password Flow](https://developer.salesforce.com/page/Digging_Deeper_into_OAuth_2.0_on_Force.com#Obtaining_a_Token_in_an_Autonomous_Client_.28Username_and_Password_Flow.29)
+6. [Username and Password Flow](https://developer.salesforce.com/page/Digging_Deeper_into_OAuth_2.0_on_Force.com#Obtaining_a_Token_in_an_Autonomous_Client_.28Username_and_Password_Flow.29)
 
 Token endpoint: https://login|test.salesforce.com/services/oauth2/token
 
