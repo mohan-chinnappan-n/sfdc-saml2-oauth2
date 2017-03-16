@@ -108,18 +108,10 @@ En_CSjH2WV7ZlUwsKHqGfI7hzeEvVdfOjH9NuaJozxvhPF489IgW6cntPuT2V647JWi7ng*
 
 
 
+[Refer the java code that generates JWT Token](./java/JWTTokenGen.java)
 
 
 
-
-
-### Using the Access token:
-
-```
-curl -X POST "https://login.salesforce.com/services/oauth2/token?grant_type=authorization_code&code=aPrxwwNuBlmuqjmp0uKJR7M9YIkq2jaXnxrTaOeDMKVFZNwY9UPARq01IfSSLuNpk5ml5ymObA%3D%3D&client_id=3MVG9i1HRpGLXp.oEUJBu3fjSz18RMHlZi_FZwu8e78zs9awHIneJEK4iWbeaRxXTZFhKG18cYCC0J8pLzNQX&redirect_uri=http://localhost:8675/callback&client_secret=9035466394386839280"
-
-
-```
 
 Results:
 ![test_token](./img/auth_code/testing_token.png)

@@ -3,6 +3,6 @@
 
 1. [SAML Bearer Assertion Flow ](./SAML-Bearer-Assertion-Flow.md)
 
-2. [JWT Bearer Token Flow ](./JWTL-Bearer-Token-Flow.md)
+2. [JWT Bearer Token Flow ](./JWT-Bearer-Token-Flow.md)
 
-3. [Web Server Flow ](./Web-Server-Flow.md)
+3. [Web Server Flow ](./Web-server-flow.md)
