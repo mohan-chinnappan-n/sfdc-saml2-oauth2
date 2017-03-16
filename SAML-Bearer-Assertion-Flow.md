@@ -29,7 +29,8 @@ which in turn processes the **SAML assertion** and issues an **access_token** ba
 
 STEPS
 
- - the Assertion is **POST**ed (1) to the OAuth token endpoint, https://login.salesforce.com/services/oauth2/token, with payload of the form:
+ - the Assertion is **POST**ed (1) to the OAuth token endpoint, https://login.salesforce.com/services/oauth2/token
+  with payload of the form:
 
 ```
   grant_type	Set this to urn:ietf:params:oauth:grant-type:saml2-bearer
