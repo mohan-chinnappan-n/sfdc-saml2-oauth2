@@ -22,7 +22,7 @@ The certificate corresponds to the private key of the app.
 
 
 
-- The JWT is posted to the token endpoint https://login|test.salesforce.com/services/oauth2/token
+- The JWT is **POST**ed  to the token endpoint https://login|test.salesforce.com/services/oauth2/token
 
   - The token endpoint validates:
     - the signature using the certificate registered by the developer

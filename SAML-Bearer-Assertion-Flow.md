@@ -24,12 +24,12 @@ Authentication of the authorized app is provided by the **digital signature appl
 
 The OAuth 2.0 SAML bearer assertion flow is similar to a **refresh token flow** within OAuth.
 
-The SAML assertion is posted to the OAuth token endpoint (https://login.salesforce.com/services/oauth2/token or https://test.salesforce.com/services/oauth2/token),
+The SAML assertion is **POST**ed to the OAuth token endpoint (https://login.salesforce.com/services/oauth2/token or https://test.salesforce.com/services/oauth2/token),
 which in turn processes the **SAML assertion** and issues an **access_token** based on prior approval of the app.
 
 STEPS
 
- - the Assertion is POSTed (1) to the OAuth token endpoint, https://login.salesforce.com/services/oauth2/token, with payload of the form:
+ - the Assertion is **POST**ed (1) to the OAuth token endpoint, https://login.salesforce.com/services/oauth2/token, with payload of the form:
 
 ```
   grant_type	Set this to urn:ietf:params:oauth:grant-type:saml2-bearer
