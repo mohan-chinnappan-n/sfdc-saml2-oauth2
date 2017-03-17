@@ -27,7 +27,7 @@ The certificate corresponds to the private key of the app.
 
   - The token endpoint validates:
     - the signature using the certificate registered by the developer
-      - validates the audience (**aud** = https://login|test.salesforce.com,:), issuer (**iss** = client_id of the connected app), validity (**exp** = expiration time of the assertion within 5 minutes  expressed as the number of seconds from 1970-01-01T0:0:0Z measured in UTC), and subject (**sub** = username of the desired Salesforce user) of the JWT
+      - validates the audience (**aud** = https://login|test.salesforce.com), issuer (**iss** = client_id of the connected app), validity (**exp** = expiration time of the assertion within 5 minutes  expressed as the number of seconds from 1970-01-01T0:0:0Z measured in UTC), and subject (**sub** = username of the desired Salesforce user) of the JWT
 
   - If JWT is valid and that the user or admin authorized the app previously, Salesforce issues an **access_token**.
 
@@ -217,6 +217,6 @@ Results:
 
 
 ## References
-1. [doc: OAuth 2.0 JWT Bearer Token Flow Flow](https://help.salesforce.com/articleView?id=remoteaccess_oauth_web_server_flow.htm&language=en&type=0)
+1. [doc: OAuth 2.0 JWT Bearer Token Flow Flow](https://help.salesforce.com/articleView?id=remoteaccess_oauth_jwt_flow.htm&type=0)
 
 2. [Obtaining an Access Token using a JWT Bearer Token](https://developer.salesforce.com/page/Digging_Deeper_into_OAuth_2.0_on_Force.com#Obtaining_an_Access_Token_using_a_JWT_Bearer_Token)
