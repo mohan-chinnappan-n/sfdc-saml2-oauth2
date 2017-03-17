@@ -107,9 +107,11 @@ I_GlmfUO2dJDg1A610t09TeoPagJsZDm_H83bsoZUoI8LpAA1s-2aj_Wbysqb1j4uDToz​
 En_CSjH2WV7ZlUwsKHqGfI7hzeEvVdfOjH9NuaJozxvhPF489IgW6cntPuT2V647JWi7ng*
 
 
-### JWT Debugger:
+### JWT Debuggers:
 
 https://jwt.io/#debugger-io
+
+http://mohansun-jwt.herokuapp.com/jwt.html
 
 --------------------
 
