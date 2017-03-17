@@ -17,6 +17,7 @@ The certificate corresponds to the private key of the app.
 
 
 - The developer writes an app that generates a JWT and signs it with the certificate
+[Refer the java code that generates JWT Token](./java/JWTTokenGen.java)
 
 - The JWT must be signed using RSA SHA256.
 
