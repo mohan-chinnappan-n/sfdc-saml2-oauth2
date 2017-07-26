@@ -113,6 +113,9 @@ https://jwt.io/#debugger-io
 
 http://mohansun-jwt.herokuapp.com/jwt.html
 
+
+#### Demo
+![JWT playground demo](img/jwt-demo-1.jpg)
 --------------------
 
 
