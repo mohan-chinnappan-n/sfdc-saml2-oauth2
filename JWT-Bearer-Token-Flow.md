@@ -115,7 +115,7 @@ http://mohansun-jwt.herokuapp.com/jwt.html
 
 
 #### Demo
-![JWT playground demo](img/jwt-demo-1.jpg)
+![JWT playground demo](img/jwt-demo-1.gif)
 --------------------
 
 
